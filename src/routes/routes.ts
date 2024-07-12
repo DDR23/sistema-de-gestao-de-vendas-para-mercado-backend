@@ -36,7 +36,7 @@ export default function routes(app: Application) {
 
   //USER
   
-  app.use('/auth', routeMe);
+  app.use('/user', routeMe);
   app.use('/user', routeUserGet);
   app.use('/user', routeUserGetOne);
   app.use('/user', routeUserPut);
