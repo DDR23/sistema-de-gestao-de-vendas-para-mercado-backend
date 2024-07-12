@@ -1,19 +1,37 @@
+//CONFIG. PADRÃO DO EXPRESS
 import express from 'express';
 const app = express();
 app.use(express.json());
 
-import cors from "cors";
+//CONFIG. PADRÃO DO CORS
+import cors from 'cors';
 app.use(cors());
 
-import { config } from "dotenv";
+//CONFIG. PADRÃO DO DOTENV
+import { config } from 'dotenv';
 config();
 
-const port = process.env.PORT;
+//EXECUTA A FUNÇÃO DE ROTEAMENTO
+import routes from './routes/routes';
+routes(app);
 
-app.get('/', (_, res) => {
-  res.send('Hello, world!');
-});
+//VERIFICA O AMBIENTE DO BANCO E ABRE UMA CONEXÃO COM O SERVIDOR
+if (process.env.DB_COLLECTION) {
+  app.listen(8080, (err?: Error) => {
+    if (err) {
+      console.log('Erro ao iniciar o servidor');
+    } else {
+      console.log(`Servidor de produção aberto.`);
+    }
+  });
+} else {
+  app.listen(8080, (err?: Error) => {
+    if (err) {
+      console.log('Erro ao iniciar o servidor');
+    } else {
+      console.log(`Servidor de teste aberto.`);
+    }
+  });
+}
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
-});
+export default app;
