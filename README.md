@@ -1,0 +1,1 @@
+feat/base é a estrutura base de um servidor funcional hospedado na vercel
