@@ -2,6 +2,9 @@ import express from 'express';
 const app = express();
 app.use(express.json());
 
+import cors from "cors";
+app.use(cors());
+
 import { config } from "dotenv";
 config();
 
