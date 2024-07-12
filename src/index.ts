@@ -11,6 +11,10 @@ app.use(cors());
 import { config } from 'dotenv';
 config();
 
+//EXECUTA A FUNÇÃO DE CONEXÃO COM O BANCO DE DADOS
+import conn from './db/conn';
+conn();
+
 //EXECUTA A FUNÇÃO DE ROTEAMENTO
 import routes from './routes/routes';
 routes(app);
