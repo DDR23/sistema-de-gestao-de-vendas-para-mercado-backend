@@ -10,7 +10,7 @@ router.get('', async (_, res) => {
 
     //RETORNA UMA LISTA COM AS ROTAS DISPONIVEIS
     res.status(200).json({
-      project: 'projeto---minimarket---BACKEND',
+      project: 'projeto---BACKEND---minimarket---OTHERS',
       owner: 'DDR23',
       status: 200
     });
